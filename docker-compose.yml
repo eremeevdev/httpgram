@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  bot:
+    build: .
+    links:
+      - db
+    volumes:
+      - "./:/app"
+
+  db:
+    image: mongo
