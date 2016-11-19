@@ -1,10 +1,11 @@
 import logging
 import botogram
+
+import conf
 import db
 
 logging.basicConfig(level=logging.INFO)
-
-bot = botogram.create("277452410:AAFGQ4SDIYcHRxfB9iI55crZVwJgIL2lN8A")
+bot = botogram.create(conf.api_token)
 
 
 @bot.command("add")
