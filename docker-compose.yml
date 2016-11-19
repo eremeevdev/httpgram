@@ -6,8 +6,12 @@ services:
     build: .
     links:
       - db
+      - redis
     volumes:
       - "./:/app"
 
   db:
     image: mongo
+
+  redis:
+    image: redis
