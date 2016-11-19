@@ -3,7 +3,7 @@ version: '2'
 services:
 
   bot:
-    build: .
+    image: eremeev/httpgram
     command: python bot.py
     links:
       - db
@@ -14,7 +14,7 @@ services:
       - './.env'
 
   celery:
-    build: .
+    image: eremeev/httpgram
     command: celery -A tasks worker -B --loglevel=info 
     links:
       - db
