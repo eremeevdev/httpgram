@@ -7,6 +7,15 @@ from bot import bot
 
 app = Celery('tasks', broker='redis://redis:6379/0')
 
+app.conf.beat_schedule = {
+    'check': {
+        'task': 'tasks.check',
+        'schedule': 30.0,
+    },
+}
+
+app.conf.timezone = 'UTC'
+
 
 @app.task
 def check_url(url):
