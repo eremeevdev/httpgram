@@ -4,6 +4,7 @@ services:
 
   bot:
     build: .
+    command: python bot.py
     links:
       - db
       - redis
@@ -11,6 +12,18 @@ services:
       - "./:/app"
     env_file:
       - './.env'
+
+  celery:
+    build: .
+    command: celery -A tasks worker -B --loglevel=info 
+    links:
+      - db
+    volumes:
+      - "./:/app"
+    env_file:
+      - './.env'
+    environment:
+      - C_FORCE_ROOT=1
 
   db:
     image: mongo

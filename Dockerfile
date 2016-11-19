@@ -10,5 +10,6 @@ RUN pip install pymongo
 RUN pip install requests
 RUN pip install celery
 RUN pip install redis
+RUN pip install celery[redis]
 
 CMD python /app/bot.py
