@@ -38,7 +38,7 @@ def list_command(chat, message, args):
 
     msg = '\n'.join(url_list)
 
-    chat.send(msg)
+    chat.send(msg, preview=False)
 
 
 if __name__ == "__main__":

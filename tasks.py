@@ -36,7 +36,7 @@ def check_url(url):
             msg = 'DOWN: {}'.format(url)
 
         for chat in chat_list:
-            bot.chat(chat).send(msg)
+            bot.chat(chat).send(msg, preview=False)
 
 
 @app.task
