@@ -41,8 +41,8 @@ def list_command(chat, message, args):
     chat.send(msg, preview=False)
 
 
-@bot.command("history")
-def history_command(chat, message, args):
+@bot.command("log")
+def log_command(chat, message, args):
     """Show status code log"""
 
     if len(args) == 1:

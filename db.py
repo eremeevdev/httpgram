@@ -48,4 +48,4 @@ def log_status(url, status_code):
 
 
 def get_log_list(url, limit=20):
-    return db.status_log.find({url: url}).sort([('date', DESCENDING)]).limit(limit)
+    return db.status_log.find({'url': url}).sort([('date', DESCENDING)]).limit(limit)
