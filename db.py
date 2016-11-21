@@ -45,3 +45,7 @@ def get_chats_for_url(url):
 
 def log_status(url, status_code):
     db.status_log.insert_one({'url': url, 'status_code': status_code, 'date': datetime.now()})
+
+
+def get_log_list(url, limit=20):
+    return list(db.status_log.find({url: url})).sort([('date', DESCENDING)]).limit(limit)

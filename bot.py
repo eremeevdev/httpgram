@@ -41,5 +41,21 @@ def list_command(chat, message, args):
     chat.send(msg, preview=False)
 
 
+@bot.command("history")
+def history_command(chat, message, args):
+    """Show status code log"""
+
+    if len(args) == 1:
+
+        msg = ''
+
+        for log in db.get_log_list(args[1]):
+            msg += '{}: `{}`'.format(log['date'], log['status_code'])
+
+        chat.send(msg)
+
+    else:
+        chat.send("Enter valid url")
+
 if __name__ == "__main__":
     bot.run()
