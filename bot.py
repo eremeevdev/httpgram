@@ -49,8 +49,8 @@ def log_command(chat, message, args):
 
         msg = ''
 
-        for log in db.get_log_list(args[1]):
-            msg += '{}: `{}`'.format(log['date'], log['status_code'])
+        for log in db.get_log_list(args[0]):
+            msg += '`{}`: {}'.format(log['status_code'], log['date'])
 
         chat.send(msg)
 
